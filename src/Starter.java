@@ -1,5 +1,3 @@
-package superBrickBlaster;
-
 /**
  * Constructs an instance of the Game class.
  */

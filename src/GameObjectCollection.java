@@ -1,5 +1,3 @@
-package superBrickBlaster;
-
 import java.util.ArrayList;
 
 /**

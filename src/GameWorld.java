@@ -1,5 +1,3 @@
-package superBrickBlaster;
-
 //import java.io.File;
 import java.util.Observable;
 import java.util.Random;

@@ -1,5 +1,3 @@
-package superBrickBlaster;
-
 import java.awt.Graphics;
 /**
  * Forces the object to have a draw method.

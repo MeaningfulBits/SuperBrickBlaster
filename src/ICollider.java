@@ -1,5 +1,3 @@
-package superBrickBlaster;
-
 /**
  * ICollider figures out if two objects have collided and if so handles the collision with the appropriate 
  * action.
