@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * @author Tyler Thomas
  *
  */
-class GameObjectCollection implements Collection{
+class GameObjectCollection {
 
 	private ArrayList<GameObject> theCollection;
 
@@ -13,17 +13,14 @@ class GameObjectCollection implements Collection{
 		theCollection = new ArrayList<GameObject>();
 	}
 
-	@Override
 	public void add(GameObject gObj) {
 		theCollection.add(gObj);
 	}
 
-	@Override
 	public Iterator getIterator() {
 		return new GameObjectIterator();
 	}
 
-	@Override
 	public void remove(GameObject gObj) {
 		theCollection.remove(gObj);	
 	}
