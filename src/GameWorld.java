@@ -67,7 +67,7 @@ class GameWorld extends Observable implements IGameWorld, IAudible {
 	private final int BRICKWIDTH = (WORLDWIDTH/COLUMN);
 	private final int PADDLEWIDTH = 100;
 	private final int PADDLEHEIGHT = (int)16.5;
-	//instantiate each object.
+	// instantiate each object.
 	private boolean isMuted = false; //Sound is either on or off; On by default.
 	private int gameClock = 0;
 	private int score = 0;
@@ -94,25 +94,32 @@ class GameWorld extends Observable implements IGameWorld, IAudible {
 		listOfGameObjects.add(bottomEdge);
 		listOfGameObjects.add(leftEdge);
 		listOfGameObjects.add(rightEdge);
-		//construct the bricks
-		int rows = ROWS;
-		float rowStart = 450+(BRICKHEIGHT/2);
-		for (int i= 0; i < rows; i++){
-			int column = COLUMN;
-			float columnStart = 5.5f + (BRICKWIDTH/2);
-			for (int j = 0; j < column; j++){
-				if(randomGenerator.nextBoolean()){
-					listOfGameObjects.add(new Brick(columnStart, rowStart, BRICKHEIGHT, BRICKWIDTH));
-				}
-				else{
-					listOfGameObjects.add(new SpeedBrick(columnStart, rowStart, BRICKHEIGHT, BRICKWIDTH));
-				}
-				columnStart = (int)(columnStart+BRICKWIDTH);
-			}
-			rowStart = rowStart-(BRICKHEIGHT);
-		}
+		buildLevel ();
 	}
 
+	/**
+	 * Builds the level by placing the bricks.
+	 */
+	public void buildLevel () {
+		//construct the bricks.
+				int rows = ROWS;
+				float rowStart = 450+(BRICKHEIGHT/2);
+				for (int i= 0; i < rows; i++){
+					int column = COLUMN;
+					float columnStart = 5.5f + (BRICKWIDTH/2);
+					for (int j = 0; j < column; j++){
+						if(randomGenerator.nextBoolean()){
+							listOfGameObjects.add(new Brick(columnStart, rowStart, BRICKHEIGHT, BRICKWIDTH));
+						}
+						else{
+							listOfGameObjects.add(new SpeedBrick(columnStart, rowStart, BRICKHEIGHT, BRICKWIDTH));
+						}
+						columnStart = (int)(columnStart+BRICKWIDTH);
+					}
+					rowStart = rowStart-(BRICKHEIGHT);
+				}
+	}
+	
 	/**
 	 * Move (change the position of) the paddle to the right by one unit.
 	 */
